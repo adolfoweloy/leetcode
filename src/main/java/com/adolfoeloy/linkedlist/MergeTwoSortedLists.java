@@ -5,36 +5,22 @@ import com.adolfoeloy.common.ListNode;
 public class MergeTwoSortedLists {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode head = new ListNode(-999);
-        ListNode p = head;
 
-        ListNode h1 = list1;
-        ListNode h2 = list2;
-
-        while (h1 != null && h2 != null) {
-            if (h1.val <= h2.val) {
-                p.next = new ListNode(h1.val);
-                h1 = h1.next;
-            } else {
-                p.next = new ListNode(h2.val);
-                h2 = h2.next;
-            }
-            p = p.next;
+        if (list1 == null) {
+            return list2;
         }
 
-        while (h1 != null) {
-            p.next = new ListNode(h1.val);
-            p = p.next;
-            h1 = h1.next;
+        if (list2 == null) {
+            return list1;
         }
 
-        while (h2 != null) {
-            p.next = new ListNode(h2.val);
-            p = p.next;
-            h2 = h2.next;
+        if (list1.val < list2.val) {
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
         }
 
-        return head.next;
+        list2.next = mergeTwoLists(list1, list2.next);
+        return list2;
 
     }
 
