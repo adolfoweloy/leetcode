@@ -25,4 +25,10 @@ class SuperSimpleCalculatorTest {
         assertThat(underTest.eval("100+10+1"))
                 .isEqualTo(111);
     }
+
+    @Test
+    void eval__should_subtract_two_numbers() {
+        assertThat(underTest.eval("100-10"))
+                .isEqualTo(90);
+    }
 }
