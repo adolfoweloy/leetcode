@@ -15,11 +15,8 @@ public class SuperSimpleCalculator {
 
         int result = numbers.remove(0);
         while (!numbers.isEmpty()) {
-            int last = numbers.size() - 1;
-            int number = numbers.remove(last);
-
-            int lastOperator = operators.size() - 1;
-            char operator = operators.remove(lastOperator);
+            int number = numbers.remove(0);
+            char operator = operators.remove(0);
 
             switch (operator) {
                 case '+':
@@ -34,6 +31,7 @@ public class SuperSimpleCalculator {
         }
         return result;
     }
+
 
     private static List<Character> getOperators(String input, Pattern operatorPattern) {
         return operatorPattern.matcher(input)
