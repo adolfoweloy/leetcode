@@ -31,4 +31,16 @@ class SuperSimpleCalculatorTest {
         assertThat(underTest.eval("100-10"))
                 .isEqualTo(90);
     }
+
+    @Test
+    void eval__should_multiply_two_numbers() {
+        assertThat(underTest.eval("100 * 10"))
+                .isEqualTo(1000);
+    }
+
+    @Test
+    void eval__should_apply_multiple_operations() {
+        assertThat(underTest.eval("100 * 10 + 5 -5000"))
+                .isEqualTo(-3995);
+    }
 }
